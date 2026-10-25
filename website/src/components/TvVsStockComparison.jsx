@@ -45,30 +45,38 @@ export default function TvVsStockComparison() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(headerRef.current, {
-        y: 35,
-        autoAlpha: 0,
-        duration: 0.8,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: 'top 85%',
-          toggleActions: 'play none none none'
+      gsap.fromTo(
+        headerRef.current,
+        { y: 35, autoAlpha: 0 },
+        {
+          y: 0,
+          autoAlpha: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: headerRef.current,
+            start: 'top 85%',
+            toggleActions: 'play none none none'
+          }
         }
-      })
+      )
 
-      gsap.from(rowsRef.current, {
-        y: 25,
-        autoAlpha: 0,
-        duration: 0.6,
-        stagger: 0.08,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: tableRef.current,
-          start: 'top 80%',
-          toggleActions: 'play none none none'
+      gsap.fromTo(
+        rowsRef.current,
+        { y: 25, autoAlpha: 0 },
+        {
+          y: 0,
+          autoAlpha: 1,
+          duration: 0.6,
+          stagger: 0.08,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: tableRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none none'
+          }
         }
-      })
+      )
     }, tableRef)
 
     return () => ctx.revert()
@@ -76,6 +84,7 @@ export default function TvVsStockComparison() {
 
   return (
     <section className="py-24 px-4 max-w-6xl mx-auto">
+      {/* Header */}
       <div ref={headerRef} className="text-center max-w-2xl mx-auto mb-16 space-y-3">
         <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full glass-pill text-xs font-semibold text-[#FBBC05]">
           <Layers className="w-3.5 h-3.5" />
@@ -90,6 +99,7 @@ export default function TvVsStockComparison() {
         </p>
       </div>
 
+      {/* Comparison Table with Elevated Translucency */}
       <div 
         ref={tableRef}
         className="rounded-3xl glass-card-elevated overflow-hidden shadow-2xl"

@@ -47,30 +47,40 @@ export default function TelemetryStrip() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(headerRef.current, {
-        y: 35,
-        autoAlpha: 0,
-        duration: 0.8,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: 'top 85%',
-          toggleActions: 'play none none none'
+      // Header entrance
+      gsap.fromTo(
+        headerRef.current,
+        { y: 35, autoAlpha: 0 },
+        {
+          y: 0,
+          autoAlpha: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: headerRef.current,
+            start: 'top 85%',
+            toggleActions: 'play none none none'
+          }
         }
-      })
+      )
 
-      gsap.from(cardsRef.current, {
-        y: 45,
-        autoAlpha: 0,
-        duration: 0.8,
-        stagger: 0.12,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 75%',
-          toggleActions: 'play none none none'
+      // Cards staggered reveal
+      gsap.fromTo(
+        cardsRef.current,
+        { y: 45, autoAlpha: 0 },
+        {
+          y: 0,
+          autoAlpha: 1,
+          duration: 0.8,
+          stagger: 0.12,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 75%',
+            toggleActions: 'play none none none'
+          }
         }
-      })
+      )
     }, sectionRef)
 
     return () => ctx.revert()
@@ -82,6 +92,7 @@ export default function TelemetryStrip() {
       ref={sectionRef} 
       className="py-24 px-4 relative max-w-7xl mx-auto"
     >
+      {/* Section Header */}
       <div ref={headerRef} className="text-center max-w-2xl mx-auto mb-16 space-y-3">
         <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full glass-pill text-xs font-semibold text-[#4285F4]">
           <Gauge className="w-3.5 h-3.5" />
@@ -97,6 +108,7 @@ export default function TelemetryStrip() {
         </p>
       </div>
 
+      {/* Grid of Metric Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {METRICS.map((metric, i) => {
           const Icon = metric.icon
@@ -106,6 +118,7 @@ export default function TelemetryStrip() {
               ref={el => cardsRef.current[i] = el}
               className="relative group p-7 rounded-3xl glass-card-elevated hover:border-white/25 transition-all duration-300 overflow-hidden flex flex-col justify-between"
             >
+              {/* Luminous ambient highlight on hover */}
               <div 
                 className="absolute top-0 right-0 w-36 h-36 rounded-full blur-3xl opacity-0 group-hover:opacity-35 transition-opacity duration-500 pointer-events-none"
                 style={{ background: metric.color }}

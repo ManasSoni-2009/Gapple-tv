@@ -1,6 +1,10 @@
-import React from 'react'
-import { Download, FileCode, RotateCcw, CheckCircle2, Shield, Tv, Sparkles } from 'lucide-react'
+import React, { useRef, useEffect } from 'react'
+import { Download, FileCode, RotateCcw, Tv, Sparkles, Terminal } from 'lucide-react'
 import { GithubIcon } from './Icons.jsx'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const DOWNLOAD_ITEMS = [
   {
@@ -36,22 +40,51 @@ const DOWNLOAD_ITEMS = [
 ]
 
 export default function DownloadHub() {
+  const hubRef = useRef(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        hubRef.current,
+        { scale: 0.95, y: 40, autoAlpha: 0 },
+        {
+          scale: 1,
+          y: 0,
+          autoAlpha: 1,
+          duration: 0.9,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: hubRef.current,
+            start: 'top 85%',
+            toggleActions: 'play none none none'
+          }
+        }
+      )
+    }, hubRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
     <section className="py-20 px-4 max-w-6xl mx-auto">
-      <div className="rounded-3xl p-8 sm:p-12 glass-panel border border-white/15 relative overflow-hidden shadow-2xl">
-        <div className="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-[#4285F4]/10 blur-3xl pointer-events-none" />
+      <div 
+        ref={hubRef}
+        className="rounded-3xl p-8 sm:p-12 glass-card-elevated border border-white/15 relative overflow-hidden shadow-2xl"
+      >
+        {/* Glow ambient background */}
+        <div className="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-[#4285F4]/12 blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-1/4 w-96 h-96 rounded-full bg-[#34A853]/10 blur-3xl pointer-events-none" />
 
         <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-12">
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold text-[#4285F4] bg-[#4285F4]/10 border border-[#4285F4]/20">
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold text-[#4285F4] bg-[#4285F4]/10 border border-[#4285F4]/20 shadow-sm">
               <Sparkles className="w-3.5 h-3.5" />
               <span>DIRECT BINARIES & SCRIPTS</span>
             </div>
             <h3 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
               Get Gapple TV Today.
             </h3>
-            <p className="text-sm text-white/60 max-w-lg">
+            <p className="text-sm text-white/60 max-w-lg leading-relaxed">
               Download the pre-compiled binary directly, or explore the open-source repository on GitHub.
             </p>
           </div>
@@ -60,30 +93,31 @@ export default function DownloadHub() {
             href="https://github.com/ManasSoni-2009/Gapple-tv"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-5 py-2.5 rounded-full glass-pill hover:bg-white/10 text-white font-medium text-xs transition-colors shrink-0"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-full glass-pill hover:bg-white/10 text-white font-medium text-xs transition-colors shrink-0 shadow-lg"
           >
             <GithubIcon className="w-4 h-4" />
             <span>View Source on GitHub</span>
           </a>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {/* Download Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {DOWNLOAD_ITEMS.map((item, idx) => {
             const Icon = item.icon
             return (
               <div
                 key={idx}
-                className="p-5 rounded-2xl bg-black/40 border border-white/10 hover:border-white/20 transition-all duration-300 flex flex-col justify-between group"
+                className="p-6 rounded-2xl bg-black/40 border border-white/10 hover:border-white/25 transition-all duration-300 flex flex-col justify-between group shadow-xl"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <div 
-                      className="w-10 h-10 rounded-xl flex items-center justify-center border border-white/10"
+                      className="w-11 h-11 rounded-xl flex items-center justify-center border border-white/10 shadow-inner"
                       style={{ background: `${item.color}15` }}
                     >
                       <Icon className="w-5 h-5" style={{ color: item.color }} />
                     </div>
-                    <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-white/60">
+                    <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-white/60">
                       {item.size}
                     </span>
                   </div>
@@ -91,7 +125,7 @@ export default function DownloadHub() {
                   <h4 className="text-base font-semibold text-white mb-1 group-hover:text-[#4285F4] transition-colors">
                     {item.name}
                   </h4>
-                  <p className="text-xs text-white/50 leading-relaxed mb-4">
+                  <p className="text-xs text-white/50 leading-relaxed mb-5">
                     {item.desc}
                   </p>
                 </div>
@@ -99,7 +133,7 @@ export default function DownloadHub() {
                 <a
                   href={item.path}
                   download={item.filename}
-                  className="w-full py-2.5 px-4 rounded-xl font-medium text-xs flex items-center justify-center gap-2 bg-white/10 hover:bg-white text-white hover:text-black transition-all duration-200 shadow-md cursor-pointer"
+                  className="w-full py-2.5 px-4 rounded-xl font-medium text-xs flex items-center justify-center gap-2 bg-white/10 hover:bg-white text-white hover:text-black transition-all duration-200 shadow-lg cursor-pointer"
                 >
                   <Download className="w-3.5 h-3.5" />
                   <span>Download {item.filename}</span>

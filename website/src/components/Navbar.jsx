@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import { Tv, Download, Terminal, Zap, Shield, Sparkles } from 'lucide-react'
+import React, { useState, useEffect, useRef } from 'react'
+import { Tv, Download, Terminal } from 'lucide-react'
 import { GithubIcon } from './Icons.jsx'
+import gsap from 'gsap'
 
-export default function Navbar({ onOpenGuide }) {
+export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
+  const navRef = useRef(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,13 +15,35 @@ export default function Navbar({ onOpenGuide }) {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        navRef.current,
+        { y: -30, autoAlpha: 0 },
+        {
+          y: 0,
+          autoAlpha: 1,
+          duration: 0.8,
+          delay: 0.2,
+          ease: 'power3.out'
+        }
+      )
+    }, navRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4 transition-all duration-300">
-      <nav className={`w-full max-w-6xl mx-auto rounded-full transition-all duration-300 px-5 py-3 flex items-center justify-between ${
-        scrolled 
-          ? 'glass-panel shadow-2xl shadow-black/80 border-white/15' 
-          : 'bg-black/30 backdrop-blur-md border border-white/8'
-      }`}>
+    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4">
+      <nav 
+        ref={navRef}
+        className={`w-full max-w-6xl mx-auto rounded-full transition-[background-color,border-color,box-shadow] duration-300 px-5 py-3 flex items-center justify-between ${
+          scrolled 
+            ? 'glass-card-elevated shadow-2xl shadow-black/80 border-white/20' 
+            : 'glass-panel border-white/10'
+        }`}
+      >
+        {/* Brand / Logo */}
         <a href="#" className="flex items-center gap-3 group">
           <div className="relative flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-white/15 to-white/5 border border-white/20 shadow-inner group-hover:scale-105 transition-transform duration-300">
             <Tv className="w-5 h-5 text-white" />
@@ -38,6 +62,7 @@ export default function Navbar({ onOpenGuide }) {
           </div>
         </a>
 
+        {/* Navigation Links */}
         <div className="hidden md:flex items-center gap-1 text-sm font-medium text-white/70">
           <a href="#simulator" className="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/5 transition-colors">
             Live Simulator
@@ -54,6 +79,7 @@ export default function Navbar({ onOpenGuide }) {
           </a>
         </div>
 
+        {/* Action CTAs */}
         <div className="flex items-center gap-2.5">
           <a
             href="https://github.com/ManasSoni-2009/Gapple-tv"
@@ -65,9 +91,9 @@ export default function Navbar({ onOpenGuide }) {
             <span className="hidden sm:inline">GitHub</span>
           </a>
           <a
-            href="https://website-one-mauve-nud917tlxw.vercel.app/downloads/gapple-tv-release.apk"
+            href="./downloads/gapple-tv-release.apk"
             download="Gapple-TV-v1.0.apk"
-            className="flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold rounded-full bg-white text-black hover:bg-white/90 shadow-lg shadow-white/10 hover:shadow-white/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+            className="flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold rounded-full bg-white text-black hover:bg-white/90 shadow-lg shadow-white/10 hover:shadow-white/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer"
           >
             <Download className="w-3.5 h-3.5" />
             <span>Get APK</span>

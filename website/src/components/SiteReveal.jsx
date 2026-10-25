@@ -7,57 +7,78 @@ export default function SiteReveal({ onFinished }) {
   const iconRef = useRef(null)
   const textRef = useRef(null)
   const lineRef = useRef(null)
+  const hasRunRef = useRef(false)
+  const onFinishedRef = useRef(onFinished)
+
+  // Keep latest onFinished callback in ref without re-triggering effect
+  useEffect(() => {
+    onFinishedRef.current = onFinished
+  }, [onFinished])
 
   useEffect(() => {
+    // Strictly execute only once per mount
+    if (hasRunRef.current) return
+    hasRunRef.current = true
+
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         onComplete: () => {
-          if (onFinished) onFinished()
+          if (overlayRef.current) {
+            overlayRef.current.style.display = 'none'
+          }
+          if (onFinishedRef.current) {
+            onFinishedRef.current()
+          }
         }
       })
 
+      // Initial states
       gsap.set(iconRef.current, { scale: 0.7, autoAlpha: 0, filter: 'blur(10px)' })
       gsap.set(textRef.current, { y: 20, autoAlpha: 0 })
       gsap.set(lineRef.current, { scaleX: 0 })
 
+      // Animate in
       tl.to(iconRef.current, {
         scale: 1,
         autoAlpha: 1,
         filter: 'blur(0px)',
-        duration: 0.6,
+        duration: 0.5,
         ease: 'power3.out'
       })
       .to(lineRef.current, {
         scaleX: 1,
-        duration: 0.5,
+        duration: 0.4,
         ease: 'power2.inOut'
       }, '-=0.2')
       .to(textRef.current, {
         y: 0,
         autoAlpha: 1,
-        duration: 0.4,
+        duration: 0.35,
         ease: 'power2.out'
-      }, '-=0.3')
+      }, '-=0.25')
+      // Exit curtain animation
       .to(overlayRef.current, {
         autoAlpha: 0,
-        scale: 1.05,
-        duration: 0.6,
-        delay: 0.2,
+        scale: 1.04,
+        duration: 0.5,
+        delay: 0.15,
         ease: 'power4.inOut'
       })
     }, overlayRef)
 
     return () => ctx.revert()
-  }, [onFinished])
+  }, [])
 
   return (
     <div
       ref={overlayRef}
       className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#040507] pointer-events-none select-none"
     >
+      {/* Ambient background glow */}
       <div className="absolute w-[450px] h-[450px] rounded-full bg-gradient-to-tr from-[#4285F4]/20 via-[#34A853]/15 to-[#EA4335]/15 blur-[100px] pointer-events-none" />
 
       <div className="relative z-10 flex flex-col items-center gap-4">
+        {/* Glowing Fusion Badge */}
         <div
           ref={iconRef}
           className="relative w-16 h-16 rounded-2xl glass-card-elevated flex items-center justify-center border border-white/20 shadow-2xl"
@@ -69,6 +90,7 @@ export default function SiteReveal({ onFinished }) {
           </span>
         </div>
 
+        {/* Brand Text */}
         <div ref={textRef} className="flex flex-col items-center">
           <div className="text-2xl font-bold tracking-tight text-white flex items-center gap-1.5">
             Gapple <span className="font-light text-white/60">tv</span>
@@ -78,6 +100,7 @@ export default function SiteReveal({ onFinished }) {
           </div>
         </div>
 
+        {/* Quad Color Line */}
         <div
           ref={lineRef}
           className="w-32 h-0.5 rounded-full bg-gradient-to-r from-[#4285F4] via-[#34A853] via-[#FBBC05] to-[#EA4335] shadow-[0_0_10px_rgba(66,133,244,0.6)] origin-center"

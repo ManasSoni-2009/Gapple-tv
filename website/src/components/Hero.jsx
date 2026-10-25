@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { 
   Play, Download, Terminal, ChevronRight, Sparkles, 
-  Tv, Film, Wifi, Sliders, LayoutGrid, ArrowUpRight
+  Tv, Film, Wifi, Sliders, LayoutGrid, ArrowUpRight,
+  ShieldCheck, Cpu
 } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -85,64 +86,54 @@ export default function Hero() {
 
   const activeApp = TV_APPS[activeAppIndex]
 
+  // GSAP Entrance & Scroll Animations
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Staggered cinematic entrance
       const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
       
-      tl.from(pillRef.current, {
-        y: -20,
-        autoAlpha: 0,
-        duration: 0.7,
-        delay: 0.1
-      })
-      .from(titleRef.current, {
-        y: 40,
-        autoAlpha: 0,
-        duration: 0.9
-      }, '-=0.4')
-      .from(descRef.current, {
-        y: 25,
-        autoAlpha: 0,
-        duration: 0.7
-      }, '-=0.5')
-      .from(ctaRef.current, {
-        y: 20,
-        autoAlpha: 0,
-        duration: 0.6
-      }, '-=0.4')
-      .from(tvStageRef.current, {
-        scale: 0.88,
-        y: 60,
-        autoAlpha: 0,
-        duration: 1.1,
-        ease: 'power4.out'
-      }, '-=0.6')
-      .from(dockRef.current, {
-        y: 20,
-        autoAlpha: 0,
-        duration: 0.6
-      }, '-=0.5')
-
-      gsap.fromTo(
-        tvStageRef.current,
-        {
-          rotateX: 12,
-          scale: 0.94,
-          y: 20
-        },
-        {
-          rotateX: 0,
-          scale: 1.02,
-          y: -20,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: 'top top',
-            end: 'bottom center',
-            scrub: 1.2
-          }
-        }
+      tl.fromTo(pillRef.current, 
+        { y: -20, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, duration: 0.7, delay: 0.1 }
       )
+      .fromTo(titleRef.current,
+        { y: 35, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, duration: 0.8 },
+        '-=0.4'
+      )
+      .fromTo(descRef.current,
+        { y: 25, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, duration: 0.7 },
+        '-=0.5'
+      )
+      .fromTo(ctaRef.current,
+        { y: 20, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, duration: 0.6 },
+        '-=0.4'
+      )
+      .fromTo(tvStageRef.current,
+        { scale: 0.92, y: 40, autoAlpha: 0 },
+        { scale: 1, y: 0, autoAlpha: 1, duration: 1.0, ease: 'power4.out' },
+        '-=0.5'
+      )
+      .fromTo(dockRef.current,
+        { y: 20, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, duration: 0.6 },
+        '-=0.4'
+      )
+
+      // Parallax scroll tilt for 3D TV Stage
+      gsap.to(tvStageRef.current, {
+        rotateX: 8,
+        y: -30,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: 'top top',
+          end: 'bottom center',
+          scrub: 1.2
+        }
+      })
     }, heroRef)
 
     return () => ctx.revert()
@@ -160,15 +151,17 @@ export default function Hero() {
       ref={heroRef} 
       className="relative min-h-screen pt-28 pb-20 px-4 flex flex-col items-center justify-center overflow-hidden"
     >
+      {/* Dynamic Ambient Backlight Glow that morphs with the selected app */}
       <div 
         className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[520px] rounded-full blur-[150px] pointer-events-none transition-all duration-700 -z-10"
         style={{ background: activeApp.glowColor }}
       />
       <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[650px] glow-ambient pointer-events-none -z-10" />
 
+      {/* Top Pill Announcement */}
       <div 
         ref={pillRef}
-        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill text-xs font-medium text-white/90 mb-6 hover:border-white/30 transition-all duration-300"
+        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill text-xs font-medium text-white/90 mb-6 hover:border-white/30 transition-colors duration-300"
       >
         <span className="flex h-2 w-2 rounded-full bg-[#34A853] animate-pulse" />
         <span className="text-white/60">Xiaomi Mi TV 4A Verified</span>
@@ -179,6 +172,7 @@ export default function Hero() {
         <ArrowUpRight className="w-3.5 h-3.5 text-white/50" />
       </div>
 
+      {/* Main Punchy Typography */}
       <div className="text-center max-w-4xl mx-auto space-y-4 mb-10">
         <h1 
           ref={titleRef}
@@ -195,6 +189,7 @@ export default function Hero() {
           No sponsored banner ads. 91% less RAM. Instant 60 FPS response.
         </p>
 
+        {/* CTA Buttons */}
         <div ref={ctaRef} className="flex flex-wrap items-center justify-center gap-3 pt-3">
           <a
             href="./downloads/gapple-tv-release.apk"
@@ -216,13 +211,17 @@ export default function Hero() {
         </div>
       </div>
 
+      {/* 3D TV Showcase Stage */}
       <div id="simulator" className="w-full max-w-6xl mx-auto perspective-[1200px] mt-4">
         <div 
           ref={tvStageRef} 
-          className="relative transition-all duration-500 rounded-3xl p-3 sm:p-5 glass-card-elevated"
+          className="relative rounded-3xl p-3 sm:p-5 glass-card-elevated"
         >
+          {/* OLED TV Bezel Frame */}
           <div className="relative rounded-2xl overflow-hidden bg-black border-4 border-[#1b1d24] shadow-2xl">
+            {/* TV Screen Aspect Ratio Container (16:9) */}
             <div className="relative aspect-video w-full overflow-hidden bg-[#07080b]">
+              {/* Actual Captured TV Screenshot */}
               <img
                 src={activeApp.image}
                 alt={activeApp.title}
@@ -230,9 +229,12 @@ export default function Hero() {
                   isTransitioning ? 'opacity-40 scale-[1.015] blur-[2px]' : 'opacity-100 scale-100 blur-0'
                 }`}
               />
+
+              {/* TV Screen Specular Glare & Vignette */}
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-transparent to-white/5 pointer-events-none" />
               <div className="absolute inset-0 shadow-[inset_0_0_90px_rgba(0,0,0,0.65)] pointer-events-none" />
 
+              {/* TV Status Pill Top Right Overlay */}
               <div className="absolute top-4 right-4 hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/10 text-[11px] font-mono text-white/80 shadow-lg">
                 <span className="w-2 h-2 rounded-full bg-[#34A853] animate-pulse" />
                 <span>Xiaomi Mi TV 4A</span>
@@ -242,6 +244,7 @@ export default function Hero() {
                 <span className="text-[#4285F4]">60 FPS</span>
               </div>
 
+              {/* Live Preview Indicator Pill */}
               <div className="absolute bottom-4 left-4 hidden sm:flex flex-col gap-0.5 bg-black/75 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 max-w-md shadow-lg">
                 <span className="text-[10px] font-semibold uppercase tracking-wider text-[#4285F4] flex items-center gap-1.5">
                   <Sparkles className="w-3 h-3 text-[#4285F4]" /> Live Hardware Capture
@@ -252,14 +255,17 @@ export default function Hero() {
               </div>
             </div>
 
+            {/* TV Chin with Minimalist Indicator */}
             <div className="h-4 bg-[#111216] flex items-center justify-center border-t border-white/5">
               <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
             </div>
           </div>
 
+          {/* TV Stand Base */}
           <div className="relative mx-auto w-36 h-2 bg-gradient-to-r from-transparent via-white/20 to-transparent -mt-0.5 rounded-full blur-[0.5px]" />
           <div className="mx-auto w-48 h-1 bg-white/10 rounded-full mt-0.5" />
 
+          {/* Interactive Screen Switcher Dock Bar (Replaced Cheap Emojis with Vector Icons) */}
           <div ref={dockRef} className="mt-6 flex flex-col items-center gap-3">
             <div className="text-xs font-semibold text-white/50 tracking-wider uppercase flex items-center gap-1.5">
               <span>Interactive Remote Simulator</span>
