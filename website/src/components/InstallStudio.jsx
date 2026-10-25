@@ -92,16 +92,28 @@ const INSTALL_STEPS = [
 
 const FAQS = [
   {
-    q: 'Does this void my TV warranty or require root?',
+    q: 'What is Gapple TV and how does it bring Apple tvOS to Android TV?',
+    a: 'Gapple TV is a high-performance open-source TV launcher created by Manas Soni that brings the fluid aesthetics, dynamic top-shelf backdrop artwork, and frosted glass sheet menus of Apple tvOS to Android TV and Google TV devices.'
+  },
+  {
+    q: 'How does Gapple TV improve performance on Android TV and Google TV?',
+    a: 'Gapple TV drops launcher resident memory (PSS) from ~320 MB on stock Google TV down to just 27.6 MB (>91% RAM reduction) and delivers locked 60 FPS scrolling on budget 1 GB RAM TVs like Xiaomi Mi TV.'
+  },
+  {
+    q: 'Does Gapple TV require root or void my TV warranty?',
     a: 'No! ADB package disabling operates strictly for User 0 without rooting. All underlying factory packages remain completely untouched in the system ROM partition.'
   },
   {
-    q: 'How do I revert back to the stock launcher?',
+    q: 'How do I revert back to the original stock launcher?',
     a: 'Simply run ".\\scripts\\restore.ps1" (or "./scripts/restore.sh"). It instantly reinstalls all original factory applications and restores the default launcher in under 5 seconds.'
   },
   {
-    q: 'What if ADB says "device unauthorized"?',
-    a: 'Check your TV screen! A popup will appear saying "Allow USB debugging?". Check "Always allow from this computer" and click OK using your remote.'
+    q: 'Does Gapple TV eliminate ads and telemetry?',
+    a: 'Yes. Gapple TV strips away all sponsored carousels, promoted billboard banners, and auto-playing trailer previews, providing a 100% ad-free, private living room experience.'
+  },
+  {
+    q: 'Who developed Gapple TV?',
+    a: 'Gapple TV was engineered by Manas Soni as an open-source, privacy-first launcher replacement designed to restore 60 FPS speed to smart TVs.'
   }
 ]
 
