@@ -275,7 +275,7 @@
       <!-- TOP SHELF CINEMA HERO CONTENT -->
       <g transform="translate(36, 42)">
         <text x="0" y="16" fill="#38BDF8" font-size="10" class="font-mono" font-weight="700" letter-spacing="1.5">
-          APPLE ORIGINAL FILM &bull; 4K HDR &bull; DOLBY ATMOS
+          APPLE ORIGINAL FILM &#8226; 4K HDR &#8226; DOLBY ATMOS
         </text>
         <text x="0" y="52" fill="#FFFFFF" font-size="30" class="font-display" font-weight="800">
           FOUNDATION
@@ -317,7 +317,7 @@
 
       <!-- Dock Title / Label -->
       <text x="36" y="234" fill="#94A3B8" font-size="10.5" class="font-text" font-weight="600" letter-spacing="1">
-        PINNED APPS &bull; INSTANT RESUME
+        PINNED APPS &#8226; INSTANT RESUME
       </text>
 
       <!-- App 1: YouTube -->
