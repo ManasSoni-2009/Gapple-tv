@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 20" width="100%" height="100%">
+  <defs>
+    <linearGradient id="divGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4285F4" stop-opacity="0"/>
+      <stop offset="15%" stop-color="#4285F4" stop-opacity="0.8"/>
+      <stop offset="38%" stop-color="#EA4335" stop-opacity="0.9"/>
+      <stop offset="62%" stop-color="#FBBC05" stop-opacity="0.9"/>
+      <stop offset="85%" stop-color="#34A853" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#34A853" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="divGlow" x="-10%" y="-100%" width="120%" height="300%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+    <style>
+      @keyframes shimmerMove {
+        0% { transform: translateX(-400px); opacity: 0; }
+        50% { opacity: 0.8; }
+        100% { transform: translateX(800px); opacity: 0; }
+      }
+      .shimmer-point {
+        animation: shimmerMove 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      }
+    </style>
+  </defs>
+
+  <!-- Ambient Glow Line -->
+  <line x1="40" y1="10" x2="940" y2="10" stroke="url(#divGrad)" stroke-width="3" filter="url(#divGlow)"/>
+  
+  <!-- Crisp Razor Line -->
+  <line x1="40" y1="10" x2="940" y2="10" stroke="url(#divGrad)" stroke-width="1"/>
+
+  <!-- Center Diamond Accent -->
+  <polygon points="490,6 494,10 490,14 486,10" fill="#FFFFFF" opacity="0.9"/>
+  <circle cx="490" cy="10" r="1.5" fill="#4285F4"/>
+
+  <!-- Shimmer Highlight Sweep -->
+  <ellipse cx="200" cy="10" rx="60" ry="2" fill="#FFFFFF" opacity="0.6" class="shimmer-point"/>
+</svg>
