@@ -74,15 +74,15 @@ export default function FeaturesStory() {
 
         gsap.fromTo(
           textCol,
-          { x: isEven ? -40 : 40, autoAlpha: 0 },
+          { x: isEven ? -30 : 30, autoAlpha: 0 },
           {
             x: 0,
             autoAlpha: 1,
-            duration: 0.9,
+            duration: 0.8,
             ease: 'power3.out',
             scrollTrigger: {
               trigger: row,
-              start: 'top 80%',
+              start: 'top 85%',
               toggleActions: 'play none none none'
             }
           }
@@ -90,16 +90,16 @@ export default function FeaturesStory() {
 
         gsap.fromTo(
           visualCol,
-          { scale: 0.92, y: 30, autoAlpha: 0 },
+          { scale: 0.94, y: 25, autoAlpha: 0 },
           {
             scale: 1,
             y: 0,
             autoAlpha: 1,
-            duration: 1,
+            duration: 0.9,
             ease: 'power3.out',
             scrollTrigger: {
               trigger: row,
-              start: 'top 80%',
+              start: 'top 85%',
               toggleActions: 'play none none none'
             }
           }
@@ -111,7 +111,7 @@ export default function FeaturesStory() {
   }, [])
 
   return (
-    <section id="features" ref={containerRef} className="py-24 px-4 max-w-7xl mx-auto space-y-36">
+    <section id="features" ref={containerRef} className="py-16 sm:py-24 px-3 sm:px-4 max-w-7xl mx-auto space-y-16 sm:space-y-28 lg:space-y-36">
       {STORIES.map((story, i) => {
         const isEven = i % 2 === 0
         return (
@@ -120,36 +120,36 @@ export default function FeaturesStory() {
             ref={el => rowsRef.current[i] = el}
             className={`flex flex-col ${
               isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'
-            } items-center gap-12 lg:gap-20`}
+            } items-center gap-8 sm:gap-12 lg:gap-20`}
           >
             {/* Text Column */}
-            <div className="text-col flex-1 space-y-6">
+            <div className="text-col flex-1 space-y-4 sm:space-y-6 w-full">
               <div 
-                className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider border border-white/10"
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-wider border border-white/10"
                 style={{ background: `${story.tagColor}15`, color: story.tagColor }}
               >
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>{story.tag}</span>
               </div>
 
-              <div className="space-y-2">
-                <h3 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+              <div className="space-y-1.5 sm:space-y-2">
+                <h3 className="text-2xl xs:text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
                   {story.title}
                 </h3>
-                <p className="text-lg sm:text-xl font-medium text-white/70">
+                <p className="text-sm xs:text-base sm:text-xl font-medium text-white/70">
                   {story.subtitle}
                 </p>
               </div>
 
-              <p className="text-sm sm:text-base text-white/55 leading-relaxed">
+              <p className="text-xs xs:text-sm sm:text-base text-white/55 leading-relaxed">
                 {story.description}
               </p>
 
-              <div className="space-y-3 pt-2">
+              <div className="space-y-2.5 sm:space-y-3 pt-1 sm:pt-2">
                 {story.points.map((pt, pIdx) => (
-                  <div key={pIdx} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 mt-0.5 shrink-0" style={{ color: story.tagColor }} />
-                    <span className="text-sm text-white/80">{pt}</span>
+                  <div key={pIdx} className="flex items-start gap-2.5 sm:gap-3">
+                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 mt-0.5 shrink-0" style={{ color: story.tagColor }} />
+                    <span className="text-xs sm:text-sm text-white/80">{pt}</span>
                   </div>
                 ))}
               </div>
@@ -157,13 +157,13 @@ export default function FeaturesStory() {
 
             {/* Visual Screen Column with Elevated Glass */}
             <div className="visual-col flex-1 w-full">
-              <div className="relative group rounded-3xl p-3 glass-card-elevated overflow-hidden hover:border-white/30 transition-all duration-500">
+              <div className="relative group rounded-2xl sm:rounded-3xl p-2 sm:p-3 glass-card-elevated overflow-hidden hover:border-white/30 transition-all duration-500">
                 <div 
-                  className="absolute -top-12 -right-12 w-56 h-56 rounded-full blur-3xl opacity-25 pointer-events-none group-hover:opacity-40 transition-opacity duration-700"
+                  className="absolute -top-12 -right-12 w-48 sm:w-56 h-48 sm:h-56 rounded-full blur-3xl opacity-25 pointer-events-none group-hover:opacity-40 transition-opacity duration-700"
                   style={{ background: story.tagColor }}
                 />
 
-                <div className="relative aspect-video rounded-2xl overflow-hidden bg-black border border-white/10 shadow-2xl">
+                <div className="relative aspect-video rounded-xl sm:rounded-2xl overflow-hidden bg-black border border-white/10 shadow-2xl">
                   <img
                     src={story.image}
                     alt={story.title}

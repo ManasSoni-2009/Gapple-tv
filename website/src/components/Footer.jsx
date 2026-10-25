@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tv, Heart, Terminal, ArrowUp } from 'lucide-react'
+import { Tv, Heart, ArrowUp } from 'lucide-react'
 import { GithubIcon } from './Icons.jsx'
 
 export default function Footer() {
@@ -8,11 +8,11 @@ export default function Footer() {
   }
 
   return (
-    <footer className="border-t border-white/10 bg-[#040507] pt-16 pb-12 px-4 text-xs text-white/50">
-      <div className="max-w-6xl mx-auto space-y-10">
+    <footer className="border-t border-white/10 bg-[#040507] pt-12 sm:pt-16 pb-10 sm:pb-12 px-3 sm:px-4 text-xs text-white/50">
+      <div className="max-w-6xl mx-auto space-y-8 sm:space-y-10">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center shrink-0">
               <Tv className="w-4 h-4 text-white" />
             </div>
             <div>
@@ -21,30 +21,31 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex items-center gap-4 text-xs font-medium">
-            <a href="https://github.com/ManasSoni-2009/Gapple-tv" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-              GitHub Repository
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-medium">
+            <a href="https://github.com/ManasSoni-2009/Gapple-tv" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors py-1">
+              GitHub
             </a>
-            <a href="#simulator" className="hover:text-white transition-colors">
+            <a href="#simulator" className="hover:text-white transition-colors py-1">
               Simulator
             </a>
-            <a href="#performance" className="hover:text-white transition-colors">
+            <a href="#performance" className="hover:text-white transition-colors py-1">
               Benchmarks
             </a>
-            <a href="#guide" className="hover:text-white transition-colors">
+            <a href="#guide" className="hover:text-white transition-colors py-1">
               ADB Guide
             </a>
             <button
               onClick={scrollToTop}
-              className="p-2 rounded-full glass-pill hover:text-white transition-colors cursor-pointer"
+              className="p-2 rounded-full glass-pill hover:text-white transition-colors cursor-pointer touch-active flex items-center justify-center"
               title="Scroll to Top"
+              aria-label="Scroll to top of page"
             >
               <ArrowUp className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>
 
-        <div className="border-t border-white/5 pt-8 space-y-3 leading-relaxed text-white/40 text-[11px]">
+        <div className="border-t border-white/5 pt-6 sm:pt-8 space-y-3 leading-relaxed text-white/40 text-[10px] sm:text-[11px]">
           <p>
             * Legal Disclaimer: Apple TV, tvOS, and Siri Remote are registered trademarks of Apple Inc. Android, Android TV, Google TV, and Google Play are trademarks of Google LLC. Gapple TV is an independent, non-commercial open-source modification project created for personal customization and hardware debloating.
           </p>
