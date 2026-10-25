@@ -1,0 +1,204 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 290" width="100%" height="100%">
+  <defs>
+    <!-- Linear Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080A10"/>
+      <stop offset="100%" stop-color="#040508"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.06)"/>
+      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.02)"/>
+    </linearGradient>
+    <linearGradient id="cardBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.20)"/>
+      <stop offset="50%" stop-color="rgba(255, 255, 255, 0.05)"/>
+      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.15)"/>
+    </linearGradient>
+    <linearGradient id="greenBar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34A853"/>
+      <stop offset="100%" stop-color="#46E06E"/>
+    </linearGradient>
+    <linearGradient id="redBar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#EA4335"/>
+      <stop offset="100%" stop-color="#FF6B5E"/>
+    </linearGradient>
+    <linearGradient id="blueGlowWave" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4285F4"/>
+      <stop offset="50%" stop-color="#34A853"/>
+      <stop offset="100%" stop-color="#4285F4"/>
+    </linearGradient>
+
+    <style>
+      @keyframes ramGrow {
+        0% { width: 0px; }
+        60% { width: 44px; }
+        100% { width: 44px; }
+      }
+      @keyframes stockRamPulse {
+        0%, 100% { opacity: 0.85; }
+        50% { opacity: 0.65; }
+      }
+      @keyframes waveScroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-90px); }
+      }
+      @keyframes shieldPulse {
+        0%, 100% { transform: scale(1); opacity: 0.9; }
+        50% { transform: scale(1.05); opacity: 1; }
+      }
+      @keyframes badgeShine {
+        0%, 100% { opacity: 0.9; }
+        50% { opacity: 1; }
+      }
+
+      .animated-ram-bar {
+        animation: ramGrow 2.5s cubic-bezier(0.16, 1, 0.3, 1) infinite alternate;
+      }
+      .stock-bar-anim {
+        animation: stockRamPulse 3s ease-in-out infinite;
+      }
+      .animated-sine {
+        animation: waveScroll 2s linear infinite;
+      }
+      .shield-icon {
+        animation: shieldPulse 3s ease-in-out infinite;
+        transform-origin: 855px 105px;
+      }
+      .card-header {
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Plus Jakarta Sans", sans-serif;
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+      .metric-huge {
+        font-family: "JetBrains Mono", SFMono-Regular, monospace;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+      }
+      .metric-sub {
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+        font-size: 11px;
+      }
+      .mono-text {
+        font-family: "JetBrains Mono", SFMono-Regular, monospace;
+      }
+    </style>
+  </defs>
+
+  <!-- Outer Frame -->
+  <rect width="980" height="290" rx="24" fill="url(#bgGrad)"/>
+  <rect width="978" height="288" x="1" y="1" rx="23" fill="none" stroke="url(#cardBorder)" stroke-width="1.5"/>
+
+  <!-- Top Title Bar -->
+  <g transform="translate(36, 28)">
+    <text x="0" y="0" fill="#94A3B8" font-size="11" class="mono-text" font-weight="600" letter-spacing="1">
+      HARDWARE BENCHMARKS // XIAOMI MI TV 4A PRO (1GB RAM)
+    </text>
+    <text x="0" y="24" fill="#FFFFFF" font-size="19" class="card-header" font-weight="800">
+      Verified System Telemetry vs Stock OS
+    </text>
+  </g>
+
+  <!-- ==================== CARD 1: RAM FOOTPRINT (PSS) ==================== -->
+  <g transform="translate(36, 80)">
+    <rect width="284" height="180" rx="18" fill="url(#cardGrad)" stroke="url(#cardBorder)" stroke-width="1"/>
+    
+    <!-- Header -->
+    <text x="20" y="32" fill="#94A3B8" class="card-header">Resident RAM (PSS)</text>
+    <circle cx="260" cy="27" r="4" fill="#34A853"/>
+
+    <!-- Stock Google TV Bar -->
+    <text x="20" y="60" fill="#64748B" font-size="10" class="mono-text">STOCK GOOGLE TV</text>
+    <text x="205" y="60" fill="#EA4335" font-size="11" class="mono-text" font-weight="700">~320.0 MB</text>
+    <!-- Stock Bar Container -->
+    <rect x="20" y="68" width="244" height="10" rx="5" fill="rgba(255,255,255,0.06)"/>
+    <rect x="20" y="68" width="230" height="10" rx="5" fill="url(#redBar)" class="stock-bar-anim" opacity="0.8"/>
+
+    <!-- Gapple TV Bar -->
+    <text x="20" y="104" fill="#94A3B8" font-size="10" class="mono-text">GAPPLE TV</text>
+    <text x="212" y="104" fill="#34A853" font-size="12" class="mono-text" font-weight="800">27.6 MB</text>
+    <!-- Gapple Bar Container -->
+    <rect x="20" y="112" width="244" height="10" rx="5" fill="rgba(255,255,255,0.06)"/>
+    <rect x="20" y="112" width="44" height="10" rx="5" fill="url(#greenBar)" class="animated-ram-bar"/>
+
+    <!-- Bottom Pill Badge -->
+    <rect x="20" y="136" width="244" height="26" rx="8" fill="rgba(52,168,83,0.12)" stroke="rgba(52,168,83,0.25)" stroke-width="1"/>
+    <text x="142" y="153" fill="#34A853" font-size="11" class="mono-text" font-weight="700" text-anchor="middle">
+      ⚡ 91.4% Memory Footprint Freed
+    </text>
+  </g>
+
+  <!-- ==================== CARD 2: RENDERTHREAD 60 FPS ==================== -->
+  <g transform="translate(348, 80)">
+    <rect width="284" height="180" rx="18" fill="url(#cardGrad)" stroke="url(#cardBorder)" stroke-width="1"/>
+
+    <!-- Header -->
+    <text x="20" y="32" fill="#94A3B8" class="card-header">Leanback Framerate</text>
+    <circle cx="260" cy="27" r="4" fill="#4285F4"/>
+
+    <!-- Big Number Display -->
+    <text x="20" y="76" fill="#FFFFFF" font-size="34" class="metric-huge">60.0</text>
+    <text x="124" y="60" fill="#4285F4" font-size="14" class="mono-text" font-weight="700">FPS</text>
+    <text x="124" y="76" fill="#64748B" font-size="11" class="mono-text">LOCKED</text>
+
+    <!-- Animated Oscilloscope Sine Wave Frame -->
+    <g transform="translate(20, 94)">
+      <rect width="244" height="34" rx="8" fill="rgba(0,0,0,0.5)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+      
+      <!-- Sine Wave Pattern with Clip -->
+      <clipPath id="waveClip">
+        <rect width="244" height="34" rx="8"/>
+      </clipPath>
+      
+      <g clip-path="url(#waveClip)">
+        <g class="animated-sine">
+          <path d="M0,17 Q22.5,2 45,17 T90,17 T135,17 T180,17 T225,17 T270,17 T315,17 T360,17" 
+                fill="none" stroke="url(#blueGlowWave)" stroke-width="2.5" />
+          <path d="M0,17 Q22.5,2 45,17 T90,17 T135,17 T180,17 T225,17 T270,17 T315,17 T360,17" 
+                fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.8"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- Bottom Pill Badge -->
+    <rect x="20" y="136" width="244" height="26" rx="8" fill="rgba(66,133,244,0.12)" stroke="rgba(66,133,244,0.25)" stroke-width="1"/>
+    <text x="142" y="153" fill="#4285F4" font-size="11" class="mono-text" font-weight="700" text-anchor="middle">
+      🎯 Zero Jitter Leanback Scrolling
+    </text>
+  </g>
+
+  <!-- ==================== CARD 3: ZERO TRACKERS & ZERO ADS ==================== -->
+  <g transform="translate(660, 80)">
+    <rect width="284" height="180" rx="18" fill="url(#cardGrad)" stroke="url(#cardBorder)" stroke-width="1"/>
+
+    <!-- Header -->
+    <text x="20" y="32" fill="#94A3B8" class="card-header">Telemetry &amp; Ads</text>
+    <circle cx="260" cy="27" r="4" fill="#FBBC05"/>
+
+    <!-- Left big metric: 0 Trackers -->
+    <text x="20" y="76" fill="#FFFFFF" font-size="34" class="metric-huge">0</text>
+    <text x="56" y="60" fill="#EA4335" font-size="12" class="mono-text" font-weight="700">TRACKERS</text>
+    <text x="56" y="76" fill="#64748B" font-size="11" class="mono-text">0 ADS BILLED</text>
+
+    <!-- Right Shield Vector Icon -->
+    <g class="shield-icon">
+      <path d="M210,48 L235,38 L260,48 C260,68 235,82 235,82 C235,82 210,68 210,48 Z" 
+            fill="rgba(52,168,83,0.2)" stroke="#34A853" stroke-width="2"/>
+      <path d="M224,59 L232,67 L248,51" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <!-- Stat Comparison Lines -->
+    <g transform="translate(20, 94)">
+      <rect width="244" height="34" rx="8" fill="rgba(0,0,0,0.5)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+      <text x="12" y="16" fill="#94A3B8" font-size="10" class="mono-text">Stock: 40+ ad daemons</text>
+      <text x="12" y="28" fill="#34A853" font-size="10" class="mono-text" font-weight="700">Gapple: 100% Offline Sanctuary</text>
+    </g>
+
+    <!-- Bottom Pill Badge -->
+    <rect x="20" y="136" width="244" height="26" rx="8" fill="rgba(251,188,5,0.12)" stroke="rgba(251,188,5,0.25)" stroke-width="1"/>
+    <text x="142" y="153" fill="#FBBC05" font-size="11" class="mono-text" font-weight="700" text-anchor="middle">
+      🛡️ 420 MB Storage Reclaimed
+    </text>
+  </g>
+</svg>

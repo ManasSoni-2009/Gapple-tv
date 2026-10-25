@@ -8,9 +8,7 @@
       <stop offset="85%" stop-color="#34A853" stop-opacity="0.8"/>
       <stop offset="100%" stop-color="#34A853" stop-opacity="0"/>
     </linearGradient>
-    <filter id="divGlow" x="-10%" y="-100%" width="120%" height="300%">
-      <feGaussianBlur stdDeviation="3"/>
-    </filter>
+    
     <style>
       @keyframes shimmerMove {
         0% { transform: translateX(-400px); opacity: 0; }
@@ -23,9 +21,16 @@
     </style>
   </defs>
 
-  <line x1="40" y1="10" x2="940" y2="10" stroke="url(#divGrad)" stroke-width="3" filter="url(#divGlow)"/>
+  <!-- Ambient Glow Line -->
+  <line x1="40" y1="10" x2="940" y2="10" stroke="url(#divGrad)" stroke-width="3" opacity="0.25"/>
+  
+  <!-- Crisp Razor Line -->
   <line x1="40" y1="10" x2="940" y2="10" stroke="url(#divGrad)" stroke-width="1"/>
+
+  <!-- Center Diamond Accent -->
   <polygon points="490,6 494,10 490,14 486,10" fill="#FFFFFF" opacity="0.9"/>
   <circle cx="490" cy="10" r="1.5" fill="#4285F4"/>
+
+  <!-- Shimmer Highlight Sweep -->
   <ellipse cx="200" cy="10" rx="60" ry="2" fill="#FFFFFF" opacity="0.6" class="shimmer-point"/>
 </svg>
