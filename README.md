@@ -142,3 +142,13 @@ Packages safely disabled for user 0:
 
 - **Code License**: [MIT License](LICENSE).
 - **Trademarks**: Apple TV, tvOS, and Siri Remote are registered trademarks of Apple Inc. Android, Android TV, Google TV, and Google Play are registered trademarks of Google LLC. Gapple TV is an independent community modification project built for personal educational use and performance optimization.
+
+
+---
+
+## 👤 Author & Maintainer
+
+Engineered and maintained by **[Manas Soni](https://github.com/ManasSoni-2009)**.
+- **Showcase & Web Terminal**: [https://gapple-tv.vercel.app](https://gapple-tv.vercel.app)
+- **GitHub**: [@ManasSoni-2009](https://github.com/ManasSoni-2009)
+- **Project Topics**: `android-tv`, `android-tv-launchers`, `apple-tv`, `google-tv`, `performance-optimization`, `debloat`, `manas-soni`
