@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <url>
+    <loc>https://gapple-tv.vercel.app/</loc>
+    <lastmod>2026-10-25T10:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://gapple-tv.vercel.app/images/tv/tv_dock_netflix.png</image:loc>
+      <image:title>Gapple TV Apple tvOS Interface on Android TV</image:title>
+      <image:caption>Apple tvOS Launcher Experience for Android TV and Google TV by Manas Soni</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://gapple-tv.vercel.app/images/tv/tv_dock_prime.png</image:loc>
+      <image:title>Dynamic Top Shelf Content-Aware Backdrop</image:title>
+      <image:caption>Gapple TV content-aware dynamic poster backdrop</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://gapple-tv.vercel.app/images/tv/tv_settings_menu_verified.png</image:loc>
+      <image:title>Translucent Apple tvOS Settings Menu</image:title>
+      <image:caption>Frosted glass quick settings sheet without black screen flash</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://gapple-tv.vercel.app/images/tv/tv_screen_apps_grid.png</image:loc>
+      <image:title>Gapple TV 60 FPS All Apps Grid</image:title>
+      <image:caption>Lightweight 27.6 MB resident RAM app drawer</image:caption>
+    </image:image>
+  </url>
+</urlset>

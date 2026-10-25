@@ -1,0 +1,17 @@
+{
+  "name": "Gapple TV - Apple tvOS Experience for Android TV & Google TV",
+  "short_name": "Gapple TV",
+  "description": "High-performance Apple tvOS launcher for Android TV and Google TV by Manas Soni.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#040507",
+  "theme_color": "#040507",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

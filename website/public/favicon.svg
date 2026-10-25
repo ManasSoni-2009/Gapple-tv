@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <rect width="512" height="512" rx="128" fill="#0A0C12"/>
+  <rect x="16" y="16" width="480" height="480" rx="112" stroke="rgba(255,255,255,0.15)" stroke-width="8"/>
+  <defs>
+    <radialGradient id="quadGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4285F4" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#0A0C12" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="googleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4285F4"/>
+      <stop offset="35%" stop-color="#34A853"/>
+      <stop offset="70%" stop-color="#FBBC05"/>
+      <stop offset="100%" stop-color="#EA4335"/>
+    </linearGradient>
+  </defs>
+  <circle cx="256" cy="256" r="200" fill="url(#quadGlow)"/>
+  
+  <rect x="100" y="140" width="312" height="210" rx="24" fill="#030406" stroke="rgba(255,255,255,0.25)" stroke-width="12"/>
+  <rect x="120" y="160" width="272" height="150" rx="12" fill="#000000"/>
+  
+  <path d="M216 350L186 400H326L296 350" fill="#1C1F28" stroke="rgba(255,255,255,0.15)" stroke-width="8"/>
+  
+  <circle cx="360" cy="180" r="14" fill="url(#googleGrad)"/>
+</svg>
