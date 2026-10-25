@@ -16,7 +16,6 @@ website/node_modules/
 website/dist/
 website/.vercel/
 .vercel/
-website/public/assets/
 
 # OS Files
 .DS_Store

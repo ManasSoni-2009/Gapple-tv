@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 220" width="100%" height="100%">
+  <defs>
+    <linearGradient id="flowBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080A10"/>
+      <stop offset="100%" stop-color="#040508"/>
+    </linearGradient>
+    <linearGradient id="wireGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4285F4"/>
+      <stop offset="50%" stop-color="#34A853"/>
+      <stop offset="100%" stop-color="#FBBC05"/>
+    </linearGradient>
+    <style>
+      @keyframes dashMove {
+        to { stroke-dashoffset: -40; }
+      }
+      @keyframes nodePulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.03); }
+      }
+      .anim-wire {
+        stroke-dasharray: 6, 6;
+        animation: dashMove 1.5s linear infinite;
+      }
+      .flow-title {
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Plus Jakarta Sans", sans-serif;
+        font-weight: 700;
+        font-size: 13px;
+      }
+      .flow-desc {
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+        font-size: 10px;
+        line-height: 1.4;
+      }
+      .mono-step {
+        font-family: "JetBrains Mono", SFMono-Regular, monospace;
+        font-size: 9px;
+        font-weight: 700;
+      }
+    </style>
+  </defs>
+
+  <rect width="980" height="220" rx="20" fill="url(#flowBg)" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+
+  <!-- Connecting Animated Data Highway Wire -->
+  <path d="M 180 110 L 320 110 L 500 110 L 680 110 L 800 110" 
+        fill="none" stroke="url(#wireGrad)" stroke-width="2" class="anim-wire" opacity="0.65"/>
+
+  <!-- Step 1: Wireless ADB Bridge -->
+  <g transform="translate(36, 40)">
+    <rect width="190" height="140" rx="16" fill="rgba(66,133,244,0.06)" stroke="rgba(66,133,244,0.3)" stroke-width="1"/>
+    <rect x="16" y="16" width="30" height="30" rx="8" fill="rgba(66,133,244,0.18)"/>
+    <text x="24" y="36" fill="#4285F4" font-size="14" font-family="monospace">⚡</text>
+    <text x="56" y="28" fill="#4285F4" class="mono-step">STAGE 01</text>
+    <text x="56" y="44" fill="#FFFFFF" class="flow-title">ADB Wi-Fi Bridge</text>
+    <text x="16" y="76" fill="#94A3B8" class="flow-desc">
+      <tspan x="16" dy="0">Wireless handshake over</tspan>
+      <tspan x="16" dy="14">Port 5555. Safe User 0</tspan>
+      <tspan x="16" dy="14">package deactivation.</tspan>
+    </text>
+  </g>
+
+  <!-- Step 2: Micro-Kernel Loader -->
+  <g transform="translate(262, 40)">
+    <rect width="190" height="140" rx="16" fill="rgba(234,67,53,0.06)" stroke="rgba(234,67,53,0.3)" stroke-width="1"/>
+    <rect x="16" y="16" width="30" height="30" rx="8" fill="rgba(234,67,53,0.18)"/>
+    <text x="24" y="36" fill="#EA4335" font-size="14" font-family="monospace">📦</text>
+    <text x="56" y="28" fill="#EA4335" class="mono-step">STAGE 02</text>
+    <text x="56" y="44" fill="#FFFFFF" class="flow-title">Leanback Runtime</text>
+    <text x="16" y="76" fill="#94A3B8" class="flow-desc">
+      <tspan x="16" dy="0">Streamed 1.28 MB APK</tspan>
+      <tspan x="16" dy="14">Native Java memory-pool.</tspan>
+      <tspan x="16" dy="14">Total PSS: 27.6 MB.</tspan>
+    </text>
+  </g>
+
+  <!-- Step 3: Top Shelf Async Compositor -->
+  <g transform="translate(488, 40)">
+    <rect width="190" height="140" rx="16" fill="rgba(251,188,5,0.06)" stroke="rgba(251,188,5,0.3)" stroke-width="1"/>
+    <rect x="16" y="16" width="30" height="30" rx="8" fill="rgba(251,188,5,0.18)"/>
+    <text x="24" y="36" fill="#FBBC05" font-size="14" font-family="monospace">🎬</text>
+    <text x="56" y="28" fill="#FBBC05" class="mono-step">STAGE 03</text>
+    <text x="56" y="44" fill="#FFFFFF" class="flow-title">Top Shelf Cinema</text>
+    <text x="16" y="76" fill="#94A3B8" class="flow-desc">
+      <tspan x="16" dy="0">Content-aware backdrop</tspan>
+      <tspan x="16" dy="14">crossfade on app hover.</tspan>
+      <tspan x="16" dy="14">Zero stutters or drops.</tspan>
+    </text>
+  </g>
+
+  <!-- Step 4: Translucent Glass Sheet Overlay -->
+  <g transform="translate(714, 40)">
+    <rect width="230" height="140" rx="16" fill="rgba(52,168,83,0.06)" stroke="rgba(52,168,83,0.3)" stroke-width="1"/>
+    <rect x="16" y="16" width="30" height="30" rx="8" fill="rgba(52,168,83,0.18)"/>
+    <text x="24" y="36" fill="#34A853" font-size="14" font-family="monospace">✨</text>
+    <text x="56" y="28" fill="#34A853" class="mono-step">STAGE 04</text>
+    <text x="56" y="44" fill="#FFFFFF" class="flow-title">Translucent Sheets</text>
+    <text x="16" y="76" fill="#94A3B8" class="flow-desc">
+      <tspan x="16" dy="0">Hardware-accelerated</tspan>
+      <tspan x="16" dy="14">quick settings drawer.</tspan>
+      <tspan x="16" dy="14">No black screen flash.</tspan>
+    </text>
+  </g>
+</svg>

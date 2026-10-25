@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 280" width="100%" height="100%">
+  <defs>
+    <linearGradient id="termBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0E111A"/>
+      <stop offset="100%" stop-color="#07080D"/>
+    </linearGradient>
+    <linearGradient id="termBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.22)"/>
+      <stop offset="50%" stop-color="rgba(255, 255, 255, 0.05)"/>
+      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.15)"/>
+    </linearGradient>
+
+    <style>
+      @keyframes blinkCursor {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+      }
+      @keyframes promptSlide {
+        0% { opacity: 0; transform: translateY(4px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+      .cursor-blink {
+        animation: blinkCursor 1s step-end infinite;
+      }
+      .line-in {
+        animation: promptSlide 0.6s ease-out forwards;
+      }
+      .term-code {
+        font-family: "JetBrains Mono", SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 12px;
+        line-height: 20px;
+      }
+      .term-title {
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+        font-size: 11px;
+        font-weight: 500;
+      }
+    </style>
+  </defs>
+
+  <!-- Terminal Window Outer Frame -->
+  <rect width="980" height="280" rx="20" fill="url(#termBg)"/>
+  <rect width="978" height="278" x="1" y="1" rx="19" fill="none" stroke="url(#termBorder)" stroke-width="1.5"/>
+
+  <!-- Window Header Bar -->
+  <rect width="980" height="38" rx="20" fill="rgba(255, 255, 255, 0.04)"/>
+  <rect width="980" height="1" y="38" fill="rgba(255, 255, 255, 0.08)"/>
+
+  <!-- Traffic Light Window Controls -->
+  <g transform="translate(18, 14)">
+    <circle cx="0" cy="0" r="5.5" fill="#EA4335" stroke="rgba(0,0,0,0.3)" stroke-width="0.8"/>
+    <circle cx="16" cy="0" r="5.5" fill="#FBBC05" stroke="rgba(0,0,0,0.3)" stroke-width="0.8"/>
+    <circle cx="32" cy="0" r="5.5" fill="#34A853" stroke="rgba(0,0,0,0.3)" stroke-width="0.8"/>
+  </g>
+
+  <!-- Header Title -->
+  <text x="490" y="23" fill="#94A3B8" class="term-title" text-anchor="middle">
+    gapple-tv-setup — powershell / zsh (adb over wi-fi 5555)
+  </text>
+
+  <!-- Connected Device Pill (Top Right) -->
+  <g transform="translate(800, 10)">
+    <rect width="160" height="20" rx="10" fill="rgba(52,168,83,0.15)" stroke="rgba(52,168,83,0.3)" stroke-width="1"/>
+    <circle cx="10" cy="10" r="3" fill="#34A853"/>
+    <text x="20" y="14" fill="#34A853" font-size="10" class="term-code" font-weight="600">TV: 192.168.1.50</text>
+  </g>
+
+  <!-- Terminal Body Content -->
+  <g transform="translate(24, 64)" class="term-code">
+    <!-- Line 1: Connect -->
+    <text x="0" y="0" fill="#64748B">1</text>
+    <text x="20" y="0" fill="#4285F4">❯ .\platform-tools\adb.exe connect 192.168.1.50:5555</text>
+    
+    <!-- Line 2: Connect Response -->
+    <text x="0" y="20" fill="#64748B">2</text>
+    <text x="20" y="20" fill="#34A853">[+] connected to 192.168.1.50:5555 (Xiaomi Mi TV 4A Pro - Authorized RSA)</text>
+
+    <!-- Line 3: Sideload -->
+    <text x="0" y="44" fill="#64748B">3</text>
+    <text x="20" y="44" fill="#4285F4">❯ .\platform-tools\adb.exe install -r .\releases\app-release.apk</text>
+
+    <!-- Line 4: Sideload Response -->
+    <text x="0" y="64" fill="#64748B">4</text>
+    <text x="20" y="64" fill="#34A853">[+] Streamed 1,276,716 bytes. Performing Streamed Install: Success [1.28 MB]</text>
+
+    <!-- Line 5: Debloat Script -->
+    <text x="0" y="88" fill="#64748B">5</text>
+    <text x="20" y="88" fill="#4285F4">❯ .\scripts\debloat.ps1</text>
+
+    <!-- Line 6: Debloat Response -->
+    <text x="0" y="108" fill="#64748B">6</text>
+    <text x="20" y="108" fill="#FBBC05">[-] Package disabled for user 0: com.mitv.tvhome (PatchWall)</text>
+    
+    <text x="0" y="128" fill="#64748B">7</text>
+    <text x="20" y="128" fill="#FBBC05">[-] Package disabled for user 0: com.xiaomi.mitv.advertise (Ad Daemon)</text>
+
+    <text x="0" y="148" fill="#64748B">8</text>
+    <text x="20" y="148" fill="#34A853">[+] Success! 40+ trackers disabled. 420 MB storage recovered. PSS: 27.6 MB.</text>
+
+    <!-- Line 9: Set Default Home & Blinking Cursor -->
+    <text x="0" y="176" fill="#64748B">9</text>
+    <text x="20" y="176" fill="#4285F4">❯ .\platform-tools\adb.exe shell cmd package set-home-activity com.gathin.tvhome/.MainActivity</text>
+    
+    <!-- Line 10: Active Blinking Prompt -->
+    <text x="0" y="198" fill="#64748B">10</text>
+    <text x="20" y="198" fill="#E2E8F0">❯ Enjoy pure cinema!</text>
+    <rect x="180" y="186" width="8" height="15" fill="#34A853" class="cursor-blink"/>
+  </g>
+</svg>
