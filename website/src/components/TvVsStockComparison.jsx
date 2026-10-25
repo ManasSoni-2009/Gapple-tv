@@ -95,7 +95,7 @@ export default function TvVsStockComparison() {
           <span className="text-white/60">And how Gapple fixes it.</span>
         </h2>
         <p className="text-xs xs:text-sm sm:text-base text-white/60 leading-relaxed">
-          Compare the bloated defaults of stock Google TV & PatchWall against Gapple TV’s tuned micro-architecture.
+          Compare the bloated defaults of stock Google TV &amp; Xiaomi PatchWall against Gapple TV’s tuned micro-architecture. Unlocking maximum performance on Android TV and Google TV devices with locked 60 FPS fluidity.
         </p>
       </div>
 

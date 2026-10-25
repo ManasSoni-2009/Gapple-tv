@@ -175,19 +175,21 @@ export default function Hero() {
 
       {/* Main Punchy Typography */}
       <div className="text-center max-w-4xl mx-auto space-y-3 sm:space-y-4 mb-8 sm:mb-10 px-2">
+        <div className="text-[11px] sm:text-xs font-bold tracking-widest uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#4285F4] via-[#EA4335] to-[#FBBC05]">
+          Apple tvOS Launcher for Android TV &amp; Google TV
+        </div>
         <h1 
           ref={titleRef}
           className="text-3xl xs:text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.12] sm:leading-[1.08] gradient-text-hero"
         >
-          Pure Cinema. <br className="hidden xs:inline" />
-          <span className="gradient-text-google">Zero Bloat.</span>
+          Gapple TV. <br className="hidden xs:inline" />
+          <span className="gradient-text-google">Pure Cinema. Zero Bloat.</span>
         </h1>
         <p 
           ref={descRef}
           className="text-xs xs:text-sm sm:text-lg md:text-xl text-white/70 max-w-2xl mx-auto font-normal leading-relaxed px-1"
         >
-          The luxurious fluidity of Apple tvOS, precision-engineered for Android TV and Google TV. 
-          No sponsored banner ads. 91% less RAM. Instant 60 FPS response.
+          The fluid aesthetic of Apple tvOS, precision-engineered by <span className="text-white font-medium">Manas Soni</span> to maximize performance on Android TV and Google TV devices. Zero sponsored ads, 91% less RAM (27.6 MB), and locked 60 FPS response.
         </p>
 
         {/* Responsive CTA Buttons (Full width on mobile for easy thumb reach) */}
