@@ -1,0 +1,13 @@
+# Gapple TV - Debloated System Packages Reference Manifest
+# Tested on Xiaomi Mi TV 4A Pro 32" (Android 9 Pie - SDK 28)
+# All uninstalled packages can be restored at any time via restore.ps1 / restore.sh
+
+com.mitv.tvhome
+com.xiaomi.mitv.advertise
+com.xiaomi.mitv.upgrade
+com.xiaomi.mitv.payment
+com.xiaomi.mitv.shop
+com.google.android.tvrecommendations
+com.google.android.videos
+com.google.android.apps.tv.dreamx
+com.xiaomi.mitv.tvplayer

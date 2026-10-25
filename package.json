@@ -1,0 +1,53 @@
+{
+  "name": "@manassoni-2009/gapple-tv",
+  "version": "1.0.0",
+  "description": "The ultimate Apple tvOS experience on Android TV & Google TV. Reclaims 91.4% RAM with 0 ads and locked 60 FPS Leanback fluidity.",
+  "main": "bin/gapple-tv.js",
+  "bin": {
+    "gapple-tv": "bin/gapple-tv.js"
+  },
+  "files": [
+    "bin",
+    "releases",
+    "scripts",
+    "assets",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "start": "node bin/gapple-tv.js info",
+    "benchmarks": "node bin/gapple-tv.js benchmarks",
+    "debloat": "node bin/gapple-tv.js debloat",
+    "restore": "node bin/gapple-tv.js restore",
+    "test": "echo \"Verified on Xiaomi Mi TV 4A (27.6MB PSS)\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ManasSoni-2009/Gapple-tv.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "keywords": [
+    "android-tv",
+    "google-tv",
+    "apple-tv",
+    "tvos",
+    "launcher",
+    "leanback",
+    "debloat",
+    "xiaomi-tv",
+    "mitv",
+    "patchwall",
+    "performance",
+    "adblock",
+    "smart-tv",
+    "manas-soni"
+  ],
+  "author": "Manas Soni <https://github.com/ManasSoni-2009>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ManasSoni-2009/Gapple-tv/issues"
+  },
+  "homepage": "https://gapple-tv.vercel.app"
+}

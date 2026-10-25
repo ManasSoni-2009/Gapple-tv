@@ -9,9 +9,11 @@
 
 <!-- Shields.io Aesthetic Badges -->
 [![Showcase Live](https://img.shields.io/badge/Showcase_Live-gapple--tv.vercel.app-000000?style=for-the-badge&logo=vercel&logoColor=white&labelColor=07090E)](https://gapple-tv.vercel.app)
+[![GitHub Release](https://img.shields.io/github/v/release/ManasSoni-2009/Gapple-tv?style=for-the-badge&logo=github&logoColor=white&labelColor=07090E&color=4285F4)](https://github.com/ManasSoni-2009/Gapple-tv/releases/latest)
+[![GitHub Package](https://img.shields.io/badge/GitHub_Package-@manassoni--2009%2Fgapple--tv-EA4335?style=for-the-badge&logo=npm&logoColor=white&labelColor=07090E)](https://github.com/ManasSoni-2009/Gapple-tv/pkgs/npm/gapple-tv)
 [![Resident RAM](https://img.shields.io/badge/Resident_RAM-27.6_MB_PSS-34A853?style=for-the-badge&logo=android&logoColor=white&labelColor=07090E)](#-hardware-telemetry-benchmarks)
 [![Framerate](https://img.shields.io/badge/Framerate-60_FPS_Locked-4285F4?style=for-the-badge&logo=apple&logoColor=white&labelColor=07090E)](#-hardware-telemetry-benchmarks)
-[![Binary Size](https://img.shields.io/badge/Release_APK-1.28_MB-EA4335?style=for-the-badge&logo=googleplay&logoColor=white&labelColor=07090E)](https://gapple-tv.vercel.app/downloads/gapple-tv-release.apk)
+[![Binary Size](https://img.shields.io/badge/Release_APK-1.28_MB-FBBC05?style=for-the-badge&logo=googleplay&logoColor=white&labelColor=07090E)](https://github.com/ManasSoni-2009/Gapple-tv/releases/latest/download/gapple-tv-v1.0.0-release.apk)
 [![License](https://img.shields.io/badge/License-MIT-FBBC05?style=for-the-badge&logoColor=white&labelColor=07090E)](LICENSE)
 
 <br/>
@@ -23,7 +25,7 @@
 
 <p align="center">
   <a href="https://gapple-tv.vercel.app">🌐 <b>Live Web Showcase</b></a> &nbsp;◆&nbsp;
-  <a href="https://gapple-tv.vercel.app/downloads/gapple-tv-release.apk">⚡ <b>Direct APK Download (1.28 MB)</b></a> &nbsp;◆&nbsp;
+  <a href="https://github.com/ManasSoni-2009/Gapple-tv/releases/latest">📦 <b>GitHub Release v1.0.0 (APK &amp; Suite)</b></a> &nbsp;◆&nbsp;
   <a href="#-quick-start--interactive-adb-studio">🚀 <b>5-Min Setup Guide</b></a> &nbsp;◆&nbsp;
   <a href="#-hardware-telemetry-benchmarks">📊 <b>Telemetry Benchmarks</b></a> &nbsp;◆&nbsp;
   <a href="#-author--maintainer">👤 <b>Author</b></a>

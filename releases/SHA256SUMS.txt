@@ -1,0 +1,2 @@
+cffc28e48b551087d998a40f3ff9285f4f6d3395aa308542baa7cff52293855a  gapple-tv-v1.0.0-release.apk
+0835a62dc043b4108c5d30a7518ef0fec806ccc4a3e63b77acfc0cfbf38f5a25  gapple-tv-v1.0.0-full-suite.zip
