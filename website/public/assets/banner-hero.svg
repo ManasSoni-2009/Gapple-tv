@@ -1,0 +1,407 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06080D"/>
+      <stop offset="50%" stop-color="#040508"/>
+      <stop offset="100%" stop-color="#080C14"/>
+    </linearGradient>
+
+    <!-- Glass Specular Canvas Border -->
+    <linearGradient id="canvasBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.22)"/>
+      <stop offset="25%" stop-color="rgba(255, 255, 255, 0.04)"/>
+      <stop offset="50%" stop-color="rgba(66, 133, 244, 0.35)"/>
+      <stop offset="75%" stop-color="rgba(255, 255, 255, 0.04)"/>
+      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.18)"/>
+    </linearGradient>
+
+    <!-- Google Quad-Color Gradient -->
+    <linearGradient id="googleLaser" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4285F4"/>
+      <stop offset="28%" stop-color="#EA4335"/>
+      <stop offset="68%" stop-color="#FBBC05"/>
+      <stop offset="100%" stop-color="#34A853"/>
+    </linearGradient>
+
+    <!-- Metallic Platinum Headline -->
+    <linearGradient id="metallicText" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="65%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#94A3B8"/>
+    </linearGradient>
+
+    <!-- Ambient Aurora Mesh Blobs -->
+    <radialGradient id="meshBlue" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4285F4" stop-opacity="0.38"/>
+      <stop offset="100%" stop-color="#4285F4" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="meshRed" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#EA4335" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#EA4335" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="meshGreen" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#34A853" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#34A853" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="meshPurple" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Cinema Poster Gradient -->
+    <linearGradient id="cinemaPosterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E1B4B"/>
+      <stop offset="40%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <radialGradient id="cinemaAtmosphere" cx="65%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.45"/>
+      <stop offset="50%" stop-color="#818CF8" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- TV Frame Bezel Gradient -->
+    <linearGradient id="tvBezelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="30%" stop-color="#1E293B"/>
+      <stop offset="70%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+
+    <!-- Glass Dock Fill -->
+    <linearGradient id="dockGlassGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.16)"/>
+      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.03)"/>
+    </linearGradient>
+
+    <!-- App Tile Gradients -->
+    <linearGradient id="ytGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FF0000"/>
+      <stop offset="100%" stop-color="#990000"/>
+    </linearGradient>
+    <linearGradient id="netflixGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E50914"/>
+      <stop offset="100%" stop-color="#670006"/>
+    </linearGradient>
+    <linearGradient id="primeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00A8E1"/>
+      <stop offset="100%" stop-color="#003554"/>
+    </linearGradient>
+    <linearGradient id="appleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2D3748"/>
+      <stop offset="100%" stop-color="#1A202C"/>
+    </linearGradient>
+    <linearGradient id="settingsGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#64748B"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+
+    <!-- Shimmer Laser Flare Clip -->
+    <clipPath id="laserClip">
+      <rect x="0" y="0" width="280" height="4" rx="2"/>
+    </clipPath>
+
+    <style>
+      @keyframes breatheGlow {
+        0%, 100% { opacity: 0.5; }
+        50% { opacity: 0.9; }
+      }
+      @keyframes blinkDot {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.25; }
+      }
+      @keyframes laserShimmer {
+        0% { transform: translateX(-120px); }
+        100% { transform: translateX(320px); }
+      }
+      @keyframes focusRingPulse {
+        0%, 100% { opacity: 0.75; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.02); }
+      }
+      @keyframes floatBadge1 {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-3px); }
+      }
+      @keyframes floatBadge2 {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-3px); }
+      }
+
+      .glow-aurora { animation: breatheGlow 5s ease-in-out infinite alternate; }
+      .live-dot { animation: blinkDot 1.8s ease-in-out infinite; }
+      .laser-flare { animation: laserShimmer 3s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+      .focus-glow { animation: focusRingPulse 2.8s ease-in-out infinite; transform-origin: 752px 336px; }
+      .float-1 { animation: floatBadge1 4s ease-in-out infinite; }
+      .float-2 { animation: floatBadge2 4s ease-in-out infinite 1s; }
+
+      .font-display {
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Plus Jakarta Sans", "Inter", Roboto, system-ui, sans-serif;
+        font-weight: 800;
+        letter-spacing: -1.5px;
+      }
+      .font-text {
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, system-ui, sans-serif;
+      }
+      .font-mono {
+        font-family: "JetBrains Mono", SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      }
+    </style>
+  </defs>
+
+  <!-- Deep Obsidian Master Canvas -->
+  <rect width="1200" height="500" rx="28" fill="url(#bgGrad)"/>
+  <rect width="1198" height="498" x="1" y="1" rx="27" fill="none" stroke="url(#canvasBorder)" stroke-width="1.5"/>
+
+  <!-- Subtle Perspective Grid -->
+  <g opacity="0.025" stroke="#FFFFFF" stroke-width="1">
+    <line x1="80" y1="0" x2="80" y2="500"/>
+    <line x1="280" y1="0" x2="280" y2="500"/>
+    <line x1="520" y1="0" x2="520" y2="500"/>
+    <line x1="840" y1="0" x2="840" y2="500"/>
+    <line x1="1120" y1="0" x2="1120" y2="500"/>
+    <line x1="0" y1="120" x2="1200" y2="120"/>
+    <line x1="0" y1="260" x2="1200" y2="260"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+  </g>
+
+  <!-- Ambient Aurora Glow Behind TV and Title -->
+  <circle cx="850" cy="240" r="280" fill="url(#meshBlue)" class="glow-aurora"/>
+  <circle cx="980" cy="180" r="220" fill="url(#meshPurple)" class="glow-aurora"/>
+  <circle cx="340" cy="180" r="220" fill="url(#meshRed)" opacity="0.45"/>
+  <circle cx="220" cy="380" r="200" fill="url(#meshGreen)" opacity="0.35"/>
+
+  <!-- ================================================================= -->
+  <!-- LEFT COLUMN: KEYNOTE TYPOGRAPHY & TELEMETRY BADGES               -->
+  <!-- ================================================================= -->
+
+  <!-- Top Hardware Status Capsule -->
+  <g transform="translate(60, 48)">
+    <rect x="0" y="0" width="370" height="30" rx="15" fill="rgba(255, 255, 255, 0.06)" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1"/>
+    <circle cx="18" cy="15" r="4.5" fill="#34A853" class="live-dot"/>
+    <text x="32" y="19" fill="#94A3B8" font-size="11" class="font-mono" font-weight="600" letter-spacing="0.5">
+      XIAOMI MI TV 4A VERIFIED <tspan fill="rgba(255,255,255,0.25)">|</tspan> <tspan fill="#34A853">60 FPS LOCKED</tspan>
+    </text>
+  </g>
+
+  <!-- Monumental Title -->
+  <text x="60" y="136" fill="url(#metallicText)" font-size="62" class="font-display">
+    Gapple TV
+  </text>
+
+  <!-- Google Quad-Color Underline with Metallic Flare Sweep -->
+  <g transform="translate(60, 154)">
+    <g clip-path="url(#laserClip)">
+      <rect x="0" y="0" width="280" height="4" rx="2" fill="url(#googleLaser)"/>
+      <ellipse cx="0" cy="2" rx="35" ry="3" fill="#FFFFFF" class="laser-flare" opacity="0.9"/>
+    </g>
+  </g>
+
+  <!-- Subtitle Value Proposition -->
+  <text x="60" y="198" fill="#FFFFFF" font-size="23" class="font-display" font-weight="700">
+    Pure Cinema. Zero Bloat.
+  </text>
+
+  <text x="60" y="228" fill="#94A3B8" font-size="13.5" class="font-text" font-weight="400">
+    The fluid elegance of Apple tvOS, precision-engineered
+  </text>
+  <text x="60" y="248" fill="#94A3B8" font-size="13.5" class="font-text" font-weight="400">
+    for budget Android TV and Google TV hardware.
+  </text>
+
+  <!-- 2x2 Telemetry Glass Metric Badges -->
+  <g transform="translate(60, 282)">
+    <!-- Badge 1: Resident RAM (Green) -->
+    <g class="float-1">
+      <rect x="0" y="0" width="195" height="66" rx="16" fill="rgba(52, 168, 83, 0.07)" stroke="rgba(52, 168, 83, 0.32)" stroke-width="1"/>
+      <text x="18" y="22" fill="#94A3B8" font-size="9.5" class="font-mono" font-weight="600" letter-spacing="0.5">PSS RESIDENT RAM</text>
+      <text x="18" y="47" fill="#34A853" font-size="20" class="font-mono" font-weight="800">27.6 MB</text>
+      <text x="116" y="46" fill="#64748B" font-size="10.5" class="font-mono">(-91.4%)</text>
+      <circle cx="175" cy="18" r="3.5" fill="#34A853"/>
+    </g>
+
+    <!-- Badge 2: Frame Rate (Blue) -->
+    <g transform="translate(210, 0)" class="float-2">
+      <rect x="0" y="0" width="195" height="66" rx="16" fill="rgba(66, 133, 244, 0.07)" stroke="rgba(66, 133, 244, 0.32)" stroke-width="1"/>
+      <text x="18" y="22" fill="#94A3B8" font-size="9.5" class="font-mono" font-weight="600" letter-spacing="0.5">LEANBACK V-SYNC</text>
+      <text x="18" y="47" fill="#4285F4" font-size="20" class="font-mono" font-weight="800">60 FPS</text>
+      <text x="98" y="46" fill="#64748B" font-size="10.5" class="font-mono">(LOCKED)</text>
+      <circle cx="175" cy="18" r="3.5" fill="#4285F4"/>
+    </g>
+
+    <!-- Badge 3: Zero Ads (Red) -->
+    <g transform="translate(0, 78)" class="float-2">
+      <rect x="0" y="0" width="195" height="66" rx="16" fill="rgba(234, 67, 53, 0.07)" stroke="rgba(234, 67, 53, 0.32)" stroke-width="1"/>
+      <text x="18" y="22" fill="#94A3B8" font-size="9.5" class="font-mono" font-weight="600" letter-spacing="0.5">HOME BILLBOARDS</text>
+      <text x="18" y="47" fill="#EA4335" font-size="20" class="font-mono" font-weight="800">0 ADS</text>
+      <text x="86" y="46" fill="#64748B" font-size="10.5" class="font-mono">(OFFLINE)</text>
+      <circle cx="175" cy="18" r="3.5" fill="#EA4335"/>
+    </g>
+
+    <!-- Badge 4: Binary Size (Yellow) -->
+    <g transform="translate(210, 78)" class="float-1">
+      <rect x="0" y="0" width="195" height="66" rx="16" fill="rgba(251, 188, 5, 0.07)" stroke="rgba(251, 188, 5, 0.32)" stroke-width="1"/>
+      <text x="18" y="22" fill="#94A3B8" font-size="9.5" class="font-mono" font-weight="600" letter-spacing="0.5">RELEASE BINARY</text>
+      <text x="18" y="47" fill="#FBBC05" font-size="20" class="font-mono" font-weight="800">1.28 MB</text>
+      <text x="108" y="46" fill="#64748B" font-size="10.5" class="font-mono">(APK)</text>
+      <circle cx="175" cy="18" r="3.5" fill="#FBBC05"/>
+    </g>
+  </g>
+
+  <!-- ================================================================= -->
+  <!-- RIGHT COLUMN: THE HARDWARE OLED TV & DOCK SHOWCASE                -->
+  <!-- ================================================================= -->
+
+  <g transform="translate(530, 42)">
+
+    <!-- TV Titanium Outer Bezel -->
+    <rect x="0" y="0" width="620" height="376" rx="20" fill="url(#tvBezelGrad)" stroke="rgba(255, 255, 255, 0.25)" stroke-width="1.2"/>
+    
+    <!-- TV Display Inner Border (OLED Black) -->
+    <rect x="6" y="6" width="608" height="364" rx="14" fill="#05070B"/>
+
+    <!-- ==================== TV DISPLAY CONTENT ==================== -->
+    <g transform="translate(6, 6)">
+      <!-- Cinema Top Shelf Poster Backdrop -->
+      <rect x="0" y="0" width="608" height="364" rx="14" fill="url(#cinemaPosterGrad)"/>
+      <rect x="0" y="0" width="608" height="364" rx="14" fill="url(#cinemaAtmosphere)"/>
+
+      <!-- Ambient Cinema Spotlight / Constellation Graphic -->
+      <circle cx="430" cy="90" r="110" fill="rgba(56, 189, 248, 0.18)"/>
+      <circle cx="430" cy="90" r="55" fill="rgba(255, 255, 255, 0.25)"/>
+      <!-- Planetary rings / sci-fi cinema aura -->
+      <ellipse cx="430" cy="90" rx="140" ry="28" fill="none" stroke="rgba(56, 189, 248, 0.35)" stroke-width="1.2" transform="rotate(-15 430 90)"/>
+
+      <!-- TOP SHELF CINEMA HERO CONTENT -->
+      <g transform="translate(36, 42)">
+        <text x="0" y="16" fill="#38BDF8" font-size="10" class="font-mono" font-weight="700" letter-spacing="1.5">
+          APPLE ORIGINAL FILM &bull; 4K HDR &bull; DOLBY ATMOS
+        </text>
+        <text x="0" y="52" fill="#FFFFFF" font-size="30" class="font-display" font-weight="800">
+          FOUNDATION
+        </text>
+        <text x="0" y="74" fill="#94A3B8" font-size="11.5" class="font-text" font-weight="400">
+          The galactic empire enters reckoning. Now streaming exclusively in native Leanback UI.
+        </text>
+        
+        <!-- Action Buttons -->
+        <g transform="translate(0, 92)">
+          <!-- Watch Now Pill -->
+          <rect x="0" y="0" width="108" height="28" rx="14" fill="#FFFFFF"/>
+          <polygon points="18,8 18,20 28,14" fill="#0A0D14"/>
+          <text x="36" y="18" fill="#0A0D14" font-size="11" class="font-text" font-weight="700">Resume</text>
+          
+          <!-- Details Pill -->
+          <rect x="118" y="0" width="94" height="28" rx="14" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
+          <text x="165" y="18" fill="#FFFFFF" font-size="11" class="font-text" font-weight="600" text-anchor="middle">+ Watchlist</text>
+        </g>
+      </g>
+
+      <!-- TOP RIGHT TV STATUS BAR -->
+      <g transform="translate(566, 26)">
+        <text x="-48" y="0" fill="#E2E8F0" font-size="11" class="font-mono" font-weight="600" text-anchor="end">9:41 PM</text>
+        <!-- Wi-Fi Vector Icon -->
+        <path d="M-36,-7 A10,10 0 0,1 -20,-7" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M-33,-4 A6,6 0 0,1 -23,-4" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="-28" cy="-1" r="1.2" fill="#FFFFFF"/>
+        <!-- Search Glyph -->
+        <circle cx="-8" cy="-5" r="4" fill="none" stroke="#FFFFFF" stroke-width="1.4"/>
+        <line x1="-5" y1="-2" x2="-2" y2="1" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round"/>
+      </g>
+
+      <!-- ==================== FROSTED GLASS DOCK ==================== -->
+      <!-- Dock Backdrop Shadow / Darken Layer -->
+      <rect x="16" y="210" width="576" height="138" rx="20" fill="rgba(0, 0, 0, 0.55)"/>
+      <rect x="16" y="210" width="576" height="138" rx="20" fill="url(#dockGlassGrad)" stroke="rgba(255, 255, 255, 0.22)" stroke-width="1"/>
+      <line x1="36" y1="210" x2="572" y2="210" stroke="rgba(255, 255, 255, 0.45)" stroke-width="1" stroke-linecap="round"/>
+
+      <!-- Dock Title / Label -->
+      <text x="36" y="234" fill="#94A3B8" font-size="10.5" class="font-text" font-weight="600" letter-spacing="1">
+        PINNED APPS &bull; INSTANT RESUME
+      </text>
+
+      <!-- App 1: YouTube -->
+      <g transform="translate(36, 246)">
+        <rect x="0" y="0" width="86" height="66" rx="14" fill="url(#ytGrad)" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+        <!-- Play Icon Inside White Pill -->
+        <rect x="25" y="18" width="36" height="24" rx="6" fill="#FFFFFF"/>
+        <polygon points="40,24 40,36 50,30" fill="#FF0000"/>
+        <text x="43" y="80" fill="#CBD5E1" font-size="11" class="font-text" font-weight="600" text-anchor="middle">YouTube</text>
+      </g>
+
+      <!-- App 2: Netflix (FOCUSED / ACTIVE WITH GOOGLE-APPLE AURA) -->
+      <g transform="translate(138, 238)">
+        <!-- Focused Glow Ring -->
+        <rect x="-4" y="-4" width="104" height="82" rx="18" fill="none" stroke="url(#googleLaser)" stroke-width="2.5" class="focus-glow"/>
+        <rect x="0" y="0" width="96" height="74" rx="15" fill="#0A0B0F" stroke="rgba(255, 255, 255, 0.3)" stroke-width="1"/>
+        <!-- Netflix Red Ribbons -->
+        <g transform="translate(33, 15)">
+          <path d="M0,0 L7,0 L7,44 L0,44 Z" fill="#B81D24"/>
+          <path d="M23,0 L30,0 L30,44 L23,44 Z" fill="#B81D24"/>
+          <path d="M0,0 L9,0 L30,44 L21,44 Z" fill="#E50914"/>
+        </g>
+        <text x="48" y="90" fill="#FFFFFF" font-size="12" class="font-text" font-weight="700" text-anchor="middle">Netflix</text>
+      </g>
+
+      <!-- App 3: Prime Video -->
+      <g transform="translate(250, 246)">
+        <rect x="0" y="0" width="86" height="66" rx="14" fill="url(#primeGrad)" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+        <!-- Prime Smile -->
+        <text x="43" y="34" fill="#FFFFFF" font-size="15" class="font-display" font-weight="800" text-anchor="middle">prime</text>
+        <path d="M26,42 Q43,50 60,42" fill="none" stroke="#00A8E1" stroke-width="2.5" stroke-linecap="round"/>
+        <polygon points="58,40 64,43 61,46" fill="#00A8E1"/>
+        <text x="43" y="80" fill="#CBD5E1" font-size="11" class="font-text" font-weight="600" text-anchor="middle">Prime</text>
+      </g>
+
+      <!-- App 4: Apple TV -->
+      <g transform="translate(352, 246)">
+        <rect x="0" y="0" width="86" height="66" rx="14" fill="url(#appleGrad)" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+        <!-- Apple TV Silhouette Glyph -->
+        <g transform="translate(26, 17)">
+          <text x="17" y="24" fill="#FFFFFF" font-size="18" class="font-display" font-weight="800">tv</text>
+          <!-- Apple Leaf & Apple -->
+          <path d="M8,12 C9,8 14,8 14,11 C14,15 10,18 8,18 C6,18 2,15 2,11 C2,8 7,8 8,12 Z" fill="#FFFFFF"/>
+        </g>
+        <text x="43" y="80" fill="#CBD5E1" font-size="11" class="font-text" font-weight="600" text-anchor="middle">Apple TV</text>
+      </g>
+
+      <!-- App 5: Settings / Quick Controls -->
+      <g transform="translate(454, 246)">
+        <rect x="0" y="0" width="86" height="66" rx="14" fill="url(#settingsGrad)" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+        <!-- Precision Gear Icon -->
+        <g transform="translate(43, 33)">
+          <circle cx="0" cy="0" r="7" fill="none" stroke="#FFFFFF" stroke-width="3"/>
+          <line x1="-12" y1="0" x2="12" y2="0" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+          <line x1="0" y1="-12" x2="0" y2="12" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+          <line x1="-8.5" y1="-8.5" x2="8.5" y2="8.5" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+          <line x1="-8.5" y1="8.5" x2="8.5" y2="-8.5" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="0" cy="0" r="3.5" fill="#334155"/>
+        </g>
+        <text x="43" y="80" fill="#CBD5E1" font-size="11" class="font-text" font-weight="600" text-anchor="middle">Settings</text>
+      </g>
+    </g>
+
+    <!-- TV Table Pedestal Feet (Aluminum) -->
+    <polygon points="120,376 130,410 180,410 170,376" fill="#1E293B" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+    <polygon points="450,376 440,410 490,410 500,376" fill="#1E293B" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+
+    <!-- Hardware Sub-Unit: Apple TV Box & Siri Remote Indicator -->
+    <g transform="translate(20, 392)">
+      <!-- Gapple TV Micro-Box -->
+      <rect x="0" y="0" width="110" height="26" rx="7" fill="#0C0E14" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+      <circle cx="95" cy="13" r="2" fill="#34A853"/>
+      <text x="14" y="17" fill="#64748B" font-size="9" class="font-mono" font-weight="600">GAPPLE TV 4K</text>
+
+      <!-- Siri Remote Silhouette (Miniature) -->
+      <g transform="translate(500, -8)">
+        <rect x="0" y="0" width="32" height="52" rx="7" fill="#1E293B" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+        <circle cx="16" cy="14" r="7" fill="#0F172A" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+        <circle cx="16" cy="14" r="2.5" fill="#38BDF8"/>
+        <rect x="8" y="28" width="6" height="6" rx="1.5" fill="#64748B"/>
+        <rect x="18" y="28" width="6" height="6" rx="1.5" fill="#64748B"/>
+        <rect x="13" y="38" width="6" height="9" rx="2" fill="#475569"/>
+      </g>
+    </g>
+
+  </g>
+</svg>
