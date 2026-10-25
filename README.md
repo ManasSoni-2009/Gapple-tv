@@ -1,7 +1,7 @@
 # Gapple TV (Apple tvOS Experience for Android TV & Google TV)
 
 <p align="center">
-  <img src="https://website-one-mauve-nud917tlxw.vercel.app/images/tv/tv_dock_netflix.png" alt="Gapple TV Interface" width="85%" style="border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.8);" />
+  <img src="https://gapple-tv.vercel.app/images/tv/tv_dock_netflix.png" alt="Gapple TV Interface" width="85%" style="border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.8);" />
 </p>
 
 <p align="center">
@@ -10,11 +10,11 @@
 </p>
 
 <p align="center">
-  <a href="https://website-one-mauve-nud917tlxw.vercel.app">🌐 Live Showcase Website</a> •
+  <a href="https://gapple-tv.vercel.app">🌐 Live Showcase Website</a> •
+  <a href="https://gapple-tv.vercel.app/downloads/gapple-tv-release.apk">⚡ Direct APK Download (1.28 MB)</a> •
   <a href="#key-features">Key Features</a> •
   <a href="#quick-start-guide">Quick Start</a> •
   <a href="#hardware-telemetry">Telemetry Benchmarks</a> •
-  <a href="#monorepo-structure">Repository</a> •
   <a href="#license">License</a>
 </p>
 
@@ -102,6 +102,39 @@ Every debloated package is uninstalled only for **User 0**. The underlying APKs 
 # macOS / Linux
 chmod +x ./scripts/restore.sh && ./scripts/restore.sh
 ```
+
+---
+
+## 📁 Monorepo Structure
+
+```
+Gapple-tv/
+├── launcher/                  <- Leanback Android Launcher Java source code
+│   ├── app/src/main/java/     <- MainActivity, DynamicTopShelf, GlassView, etc.
+│   └── app/src/main/res/      <- Layouts, styles, glass drawables, assets
+├── releases/                  <- Prebuilt production release binaries
+│   └── app-release.apk        <- 1.28 MB signed production APK
+├── scripts/                   <- Automated ADB scripts
+│   ├── debloat.ps1            <- 1-click debloat script
+│   ├── restore.ps1            <- 1-click restore script
+│   └── packages_backup.txt    <- Original snapshot of device packages
+├── website/                   <- Awwwards-level GSAP showcase website
+│   ├── public/images/tv/      <- Actual 720p/1080p TV UI captures
+│   ├── src/components/        <- Hero (3D TV simulator), Telemetry, InstallStudio
+│   └── vercel.json            <- Production deployment routing configuration
+└── README.md                  <- Project documentation & setup instructions
+```
+
+---
+
+## 📜 Debloat Package Highlights
+
+Packages safely disabled for user 0:
+- `com.mitv.tvhome` (Stock Xiaomi PatchWall / Mi Home launcher)
+- `com.xiaomi.mitv.advertise` (Xiaomi boot and wallpaper ad daemon)
+- `com.google.android.tvrecommendations` (Google TV sponsored feed tracker)
+- `com.google.android.videos` (Google Play Movies banner pusher)
+- `com.xiaomi.mitv.upgrade` & `com.xiaomi.mitv.payment` (Manufacturer telemetry)
 
 ---
 
