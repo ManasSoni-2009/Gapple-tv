@@ -1,0 +1,23 @@
+# Android SDK & Tools
+android-sdk/
+jdk/
+platform-tools/
+cleanyourtv/
+*.iml
+.gradle/
+local.properties
+.idea/
+build/
+app/build/
+
+# Node & Frontend
+node_modules/
+website/node_modules/
+website/dist/
+website/.vercel/
+.vercel/
+
+# OS Files
+.DS_Store
+Thumbs.db
+*.log
