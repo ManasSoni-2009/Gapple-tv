@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 250" width="100%" height="100%">
+  <defs>
+    <linearGradient id="gridBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080A10"/>
+      <stop offset="100%" stop-color="#040508"/>
+    </linearGradient>
+    <linearGradient id="borderShimmer" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.2)"/>
+      <stop offset="50%" stop-color="rgba(255,255,255,0.05)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.15)"/>
+    </linearGradient>
+    
+    <style>
+      @keyframes iconPulse {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-3px); }
+      }
+      @keyframes glowCycle {
+        0%, 100% { opacity: 0.2; }
+        50% { opacity: 0.45; }
+      }
+      .feat-icon { animation: iconPulse 4s ease-in-out infinite; }
+      .feat-icon-2 { animation: iconPulse 4s ease-in-out infinite 1s; }
+      .feat-icon-3 { animation: iconPulse 4s ease-in-out infinite 2s; }
+      .feat-icon-4 { animation: iconPulse 4s ease-in-out infinite 3s; }
+      
+      .title-font {
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Plus Jakarta Sans", sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+      }
+      .desc-font {
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+        font-size: 11px;
+        line-height: 1.4;
+      }
+      .mono-tag {
+        font-family: "JetBrains Mono", SFMono-Regular, monospace;
+        font-size: 9px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+    </style>
+  </defs>
+
+  <rect width="980" height="250" rx="20" fill="url(#gridBg)"/>
+  <rect width="978" height="248" x="1" y="1" rx="19" fill="none" stroke="url(#borderShimmer)" stroke-width="1.5"/>
+
+  <!-- Column 1: Top Shelf Cinema (Red Accent) -->
+  <g transform="translate(24, 20)">
+    <rect width="218" height="210" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(229,9,20,0.3)" stroke-width="1"/>
+    <!-- Icon Container -->
+    <g class="feat-icon" transform="translate(18, 20)">
+      <rect width="40" height="40" rx="10" fill="rgba(229,9,20,0.15)" stroke="#EA4335" stroke-width="1.5"/>
+      <polygon points="17,14 17,26 27,20" fill="#EA4335"/>
+    </g>
+    <text x="18" y="86" fill="#EA4335" class="mono-tag" font-weight="700">01 // CINEMA POSTERS</text>
+    <text x="18" y="108" fill="#FFFFFF" class="title-font">Dynamic Top Shelf</text>
+    <text x="18" y="132" fill="#94A3B8" class="desc-font">
+      <tspan x="18" dy="0">Crossfades full 4K</tspan>
+      <tspan x="18" dy="16">ambient artwork with</tspan>
+      <tspan x="18" dy="16">zero lag as you hover</tspan>
+      <tspan x="18" dy="16">across your dock apps.</tspan>
+    </text>
+  </g>
+
+  <!-- Column 2: Translucent Glass Sheets (Blue Accent) -->
+  <g transform="translate(262, 20)">
+    <rect width="218" height="210" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(66,133,244,0.3)" stroke-width="1"/>
+    <!-- Icon Container -->
+    <g class="feat-icon-2" transform="translate(18, 20)">
+      <rect width="40" height="40" rx="10" fill="rgba(66,133,244,0.15)" stroke="#4285F4" stroke-width="1.5"/>
+      <rect x="13" y="13" width="14" height="14" rx="3" fill="none" stroke="#4285F4" stroke-width="1.8"/>
+      <line x1="17" y1="20" x2="23" y2="20" stroke="#4285F4" stroke-width="1.8"/>
+    </g>
+    <text x="18" y="86" fill="#4285F4" class="mono-tag" font-weight="700">02 // TVOS TRANSLUCENCY</text>
+    <text x="18" y="108" fill="#FFFFFF" class="title-font">Glass Settings Menu</text>
+    <text x="18" y="132" fill="#94A3B8" class="desc-font">
+      <tspan x="18" dy="0">Settings &amp; Wi-Fi drawers</tspan>
+      <tspan x="18" dy="16">slide in without blacking</tspan>
+      <tspan x="18" dy="16">out the home launcher</tspan>
+      <tspan x="18" dy="16">or background streams.</tspan>
+    </text>
+  </g>
+
+  <!-- Column 3: 1.28 MB Micro-Kernel (Green Accent) -->
+  <g transform="translate(500, 20)">
+    <rect width="218" height="210" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(52,168,83,0.3)" stroke-width="1"/>
+    <!-- Icon Container -->
+    <g class="feat-icon-3" transform="translate(18, 20)">
+      <rect width="40" height="40" rx="10" fill="rgba(52,168,83,0.15)" stroke="#34A853" stroke-width="1.5"/>
+      <path d="M14,24 L20,16 L26,24" fill="none" stroke="#34A853" stroke-width="2" stroke-linecap="round"/>
+      <line x1="20" y1="17" x2="20" y2="28" stroke="#34A853" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    <text x="18" y="86" fill="#34A853" class="mono-tag" font-weight="700">03 // MICRO-KERNEL</text>
+    <text x="18" y="108" fill="#FFFFFF" class="title-font">1.28 MB Binary</text>
+    <text x="18" y="132" fill="#94A3B8" class="desc-font">
+      <tspan x="18" dy="0">Compiled in pure Java</tspan>
+      <tspan x="18" dy="16">on Leanback SDK.</tspan>
+      <tspan x="18" dy="16">Instant cold boots and</tspan>
+      <tspan x="18" dy="16">27.6 MB memory footprint.</tspan>
+    </text>
+  </g>
+
+  <!-- Column 4: 100% Reversible Debloat (Yellow Accent) -->
+  <g transform="translate(738, 20)">
+    <rect width="218" height="210" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(251,188,5,0.3)" stroke-width="1"/>
+    <!-- Icon Container -->
+    <g class="feat-icon-4" transform="translate(18, 20)">
+      <rect width="40" height="40" rx="10" fill="rgba(251,188,5,0.15)" stroke="#FBBC05" stroke-width="1.5"/>
+      <path d="M15,20 C15,16 18,14 20,14 C23,14 25,16 25,18 C25,22 15,22 15,25" fill="none" stroke="#FBBC05" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="20" cy="27" r="1.5" fill="#FBBC05"/>
+    </g>
+    <text x="18" y="86" fill="#FBBC05" class="mono-tag" font-weight="700">04 // ZERO RISK</text>
+    <text x="18" y="108" fill="#FFFFFF" class="title-font">Reversible for User 0</text>
+    <text x="18" y="132" fill="#94A3B8" class="desc-font">
+      <tspan x="18" dy="0">Operates without root.</tspan>
+      <tspan x="18" dy="16">Factory ROM remains intact.</tspan>
+      <tspan x="18" dy="16">Run restore.ps1 to</tspan>
+      <tspan x="18" dy="16">revert in under 5 seconds.</tspan>
+    </text>
+  </g>
+</svg>
